@@ -2,7 +2,7 @@ name: Vu - Vue MFE Root Deploy
 
 on:
   push:
-    branches: [main]
+    branches: []
 
 permissions:
   contents: write

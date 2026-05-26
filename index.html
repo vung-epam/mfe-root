@@ -1,0 +1,14 @@
+<!doctype html><html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><meta http-equiv="X-UA-Compatible" content="ie=edge"/><title>Root Config</title><meta http-equiv="Content-Security-Policy" content="default-src 'self' https: localhost:*; script-src 'unsafe-inline' 'unsafe-eval' https: localhost:*; connect-src https: localhost:* ws://localhost:*; style-src 'unsafe-inline' https:; img-src 'self' https: localhost:* data:; object-src 'none';"/><meta name="importmap-type" use-injector/><script type="injector-importmap">{
+        "imports": {
+          "@vu/root-config": "/vu-root-config.js",
+          "single-spa": "https://cdn.jsdelivr.net/npm/single-spa@6.0.3/lib/es2015/esm/single-spa.min.js",
+          "single-spa-vue": "https://cdn.jsdelivr.net/npm/single-spa-vue@3.0.1/dist/system/single-spa-vue.min.js"
+        }
+      }</script><link rel="preload" href="https://cdn.jsdelivr.net/npm/single-spa@6.0.3/lib/es2015/esm/single-spa.min.js" as="module"/><script type="injector-importmap">{
+        "imports": {
+          "@vu/vue": "https://vung-epam.github.io/vue-child-mfe/main.js",
+          "@single-spa/welcome": "https://cdn.jsdelivr.net/npm/single-spa-welcome/dist/single-spa-welcome.min.js"
+        }
+      }</script><script src="https://cdn.jsdelivr.net/npm/import-map-overrides@5.1.1/dist/import-map-overrides.js"></script><script src="https://cdn.jsdelivr.net/npm/@single-spa/import-map-injector@2.0.1/lib/import-map-injector.js"></script></head><body><noscript>You need to enable JavaScript to run this app.</noscript><main></main><script>window.importMapInjector.initPromise.then(() => {
+        import('@vu/root-config');
+      });</script><import-map-overrides-full show-when-local-storage="devtools" dev-libs></import-map-overrides-full></body></html>

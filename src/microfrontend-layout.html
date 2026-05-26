@@ -1,0 +1,164 @@
+<single-spa-router mode="history" base="/">
+  <main>
+    <route path="/">
+      <nav class="home-links" aria-label="Home links">
+        <h4>Navigator from root app</h4>
+        <a onClick="window.singleSpaNavigate('/vue')">Vue App</a>
+        <a onClick="window.singleSpaNavigate('/welcome')" class="secondary"
+          >Welcome App</a
+        >
+        <a onClick="window.singleSpaNavigate('/shared')" class="secondary"
+          >Another Vue App</a
+        >
+      </nav>
+    </route>
+    <route path="welcome" exact>
+      <application
+        name="@single-spa/welcome"
+        loader="spinner"
+        error="errorMessage"
+      ></application>
+    </route>
+    <route path="vue">
+      <application
+        name="@vu/vue"
+        props="theme"
+        error="errorMessage"
+      ></application>
+    </route>
+    <route path="shared">
+      <application
+        name="@vu/shared"
+        props="theme,toggleTheme"
+        error="errorMessage"
+      ></application>
+    </route>
+    <route default>
+      <h1>404 Not Found</h1>
+    </route>
+  </main>
+
+  <style>
+    :root {
+      --text: #6b6375;
+      --text-h: #08060d;
+      --bg: #fff;
+      --border: #e5e4e7;
+      --code-bg: #f4f3ec;
+      --accent: #aa3bff;
+      --accent-bg: rgba(170, 59, 255, 0.1);
+      --accent-border: rgba(170, 59, 255, 0.5);
+      --social-bg: rgba(244, 243, 236, 0.5);
+      --shadow: rgba(0, 0, 0, 0.1) 0 10px 15px -3px,
+        rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
+
+      --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
+      --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
+      --mono: ui-monospace, Consolas, monospace;
+
+      font: 18px/145% var(--sans);
+      letter-spacing: 0.18px;
+      color-scheme: light dark;
+      color: var(--text);
+      background: var(--bg);
+      font-synthesis: none;
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+
+      @media (max-width: 1024px) {
+        font-size: 16px;
+      }
+    }
+
+    .home-links {
+      display: inline-flex;
+      gap: 12px;
+      align-items: center;
+      background: transparent;
+      padding: 0 20px;
+      width: 100%;
+      border-bottom: 1px solid rgb(0, 0, 0);
+    }
+
+    .home-links a {
+      text-decoration: none;
+      padding: 10px 16px;
+      border-radius: 8px;
+      font-weight: 600;
+      border: 1px solid rgba(0, 0, 0, 0.06);
+      background: transparent;
+      transition: transform 0.08s ease, box-shadow 0.12s ease;
+    }
+
+    .home-links a.secondary {
+      opacity: 0.95;
+      border-style: dashed;
+      font-weight: 500;
+    }
+
+    .home-links a:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+    }
+
+    .home-links a:focus {
+      outline: 3px solid currentColor;
+      outline-offset: 2px;
+    }
+
+    .error-fallback {
+      max-width: 640px;
+      margin: 64px auto;
+      padding: 24px 28px;
+      border-radius: 16px;
+      background: var(--accent-bg);
+      border: 1px solid var(--accent-border);
+      color: var(--text-h);
+      box-shadow: var(--shadow);
+    }
+
+    .error-fallback h2 {
+      margin: 0 0 8px;
+      font-size: 1.5rem;
+      color: var(--text-h);
+    }
+
+    .error-fallback p {
+      margin: 0 0 18px;
+      color: var(--text);
+    }
+
+    .error-fallback__actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .error-fallback__actions button {
+      border: 1px solid rgba(0, 0, 0, 0.12);
+      background: #fff;
+      color: var(--text-h);
+      padding: 10px 18px;
+      border-radius: 10px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform 0.08s ease, box-shadow 0.12s ease;
+    }
+
+    .error-fallback__actions button.secondary {
+      border-style: dashed;
+      background: transparent;
+    }
+
+    .error-fallback__actions button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+    }
+
+    .error-fallback__actions button:focus {
+      outline: 3px solid currentColor;
+      outline-offset: 2px;
+    }
+  </style>
+</single-spa-router>

@@ -1,8 +1,8 @@
-name: Vu - Vue MFE Child Deploy
+name: Vu - Vue MFE Root Deploy
 
 on:
   push:
-    branches: [main, master]
+    branches: [main]
 
 permissions:
   contents: write
@@ -14,9 +14,8 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
-          cache: pnpm
-      - run: corepack enable
+          node-version: 24
+      - run: npm install -g pnpm
       - run: pnpm install
       - run: pnpm run build
       - name: Deploy to GitHub Pages
